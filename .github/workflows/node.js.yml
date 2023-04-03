@@ -33,7 +33,7 @@ jobs:
           
     - name: Build
       run: |
-          ng build --configuration production
+        npm build
           
     - name: Deploy
       run: |
