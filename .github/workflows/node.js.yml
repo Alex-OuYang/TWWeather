@@ -43,15 +43,11 @@ jobs:
         github-token: ${{ secrets.TOKEN_GITHUB_ACTION }}
         output-file: "false"
         
-    - name: Create Release
+    - name: Create a Release
+      id: create_release
       uses: actions/create-release@v1
-      if: ${{ steps.changelog.outputs.skipped == 'false' }}
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB_ACTION }}
-      with:
-        tag_name: ${{ steps.changelog.outputs.tag }}
-        release_name: ${{ steps.changelog.outputs.tag }}
-        body: ${{ steps.changelog.outputs.clean_changelog }}
+        GITHUB_TOKEN: ${{ github.token }}
     
     - name: Deploy
       run: |
