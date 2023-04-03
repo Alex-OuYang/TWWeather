@@ -26,6 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        
     - name: Install Dependencies
       if: steps.cache-nodemodules.outputs.cache-hit != 'true'
       run: |
@@ -33,7 +34,7 @@ jobs:
           
     - name: Build
       run: |
-        npm build
+        npm run build
           
     - name: Deploy
       run: |
