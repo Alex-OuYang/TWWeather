@@ -7,7 +7,7 @@
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng deploy --base-href=/TWWeather/"
+    "deploy": "ng deploy --base-href=/TWWeather/ --no-silent"
   },
   "private": true,
   "dependencies": {
