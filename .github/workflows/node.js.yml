@@ -36,23 +36,8 @@ jobs:
       run: |
         npm run build
     
-    - name: Conventional Changelog Action
-      id: changelog
-      uses: TriPSs/conventional-changelog-action@v3
-      with:
-        GITHUB_TOKEN: ${{ github.token }}
-        output-file: "false"
-        
-    - name: Create a Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-      with:
-        tag_name: ${{ steps.changelog.outputs.tag }}
-        release_name: ${{ steps.changelog.outputs.tag }}
-        body: ${{ steps.changelog.outputs.clean_changelog }}
-    
     - name: Deploy
+      env:
+        GITHUB_TOKEN: ${{secrets.TOKEN}}
       run: |
           npm run deploy
