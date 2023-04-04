@@ -36,11 +36,11 @@ jobs:
         run: |
           npm run build
 
-      - name: Deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          npm run deploy
+      # - name: Deploy
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   run: |
+      #     npm run deploy
 
       - name: DeployghPage
         uses: JamesIves/github-pages-deploy-action@releases/v4
